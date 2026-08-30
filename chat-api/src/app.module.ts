@@ -9,6 +9,7 @@ import configMapping from './common/configration/config-mapping';
 import { MongooseModule } from '@nestjs/mongoose';
 import { IEnvironment } from './common/configration/enviroment.interface';
 import { UsersModule } from './users/users.module';
+import { DbMigrationService } from './common/configration/db-migration.service';
 
 @Module({
   imports: [
@@ -30,6 +31,6 @@ import { UsersModule } from './users/users.module';
     UsersModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, DbMigrationService],
 })
 export class AppModule {}

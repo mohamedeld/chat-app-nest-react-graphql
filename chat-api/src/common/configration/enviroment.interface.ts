@@ -4,4 +4,5 @@ export interface IEnvironment {
   mongoUri: string;
   jwtSecret: string;
   accessTokenExpiration: string;
+  db_name: string;
 }

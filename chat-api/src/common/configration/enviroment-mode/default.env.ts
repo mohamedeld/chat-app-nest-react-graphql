@@ -6,4 +6,5 @@ export const defaultEnv = (): IEnvironment => ({
   jwtSecret: process.env.JWT_SECRET as string,
   accessTokenExpiration: process.env.ACCESS_TOKEN_EXPIRATION as string,
   node_env: process.env.NODE_ENV as string,
+  db_name: process.env.DATABASE_NAME as string,
 });
