@@ -10,6 +10,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { IEnvironment } from './common/configration/enviroment.interface';
 import { UsersModule } from './users/users.module';
 import { DbMigrationService } from './common/configration/db-migration.service';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { DbMigrationService } from './common/configration/db-migration.service';
       autoSchemaFile: true,
     }),
     UsersModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService, DbMigrationService],
