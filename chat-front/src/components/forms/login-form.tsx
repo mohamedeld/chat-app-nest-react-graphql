@@ -16,9 +16,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { LoginFormValues, loginSchema } from "@/schema/login.schema";
+import { useLogin } from "@/hooks/use-login";
+import { toast } from "../ui/toast";
 
 export function LoginForm() {
   const navigate = useNavigate();
+  const { login } = useLogin();
   const {
     control,
     handleSubmit,
@@ -34,11 +37,18 @@ export function LoginForm() {
 
   const onSubmit = async (data: LoginFormValues) => {
     try {
-      console.log("Login data:", data);
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      alert("Login successful!");
+      const res = await login(data);
+      if (res?.ok) {
+        toast.add({
+          title: "Success",
+          description: "Logged in Successfully",
+        });
+      }
     } catch (error) {
-      console.error("Login error:", error);
+      toast.add({
+        title: "Error",
+        description: `${error}`,
+      });
     }
   };
 
