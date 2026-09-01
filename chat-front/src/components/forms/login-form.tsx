@@ -43,8 +43,10 @@ export function LoginForm() {
           title: "Success",
           description: "Logged in Successfully",
         });
+        navigate("/");
       }
     } catch (error) {
+      console.log("error", error);
       toast.add({
         title: "Error",
         description: `${error}`,

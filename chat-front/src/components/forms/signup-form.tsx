@@ -49,6 +49,7 @@ export function SignupForm() {
         title: "User Registered",
         description: "User Registered Successfully",
       });
+      navigate("/login");
     } catch (error) {
       toast.add({
         title: "Error",

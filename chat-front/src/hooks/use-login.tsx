@@ -10,7 +10,9 @@ export const useLogin = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(values),
+      credentials: "include",
     });
+    console.log("res", res?.ok);
     if (!res?.ok) {
       throw new Error("Invalid Credentials");
     }
