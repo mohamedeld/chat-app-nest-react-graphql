@@ -19,4 +19,12 @@ export class AuthService {
       expires,
     });
   }
+  logout(response: Response) {
+    response.clearCookie('authentication', {
+      httpOnly: true,
+      secure: true,
+      sameSite: 'none',
+      path: '/',
+    });
+  }
 }

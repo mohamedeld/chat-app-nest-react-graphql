@@ -3,6 +3,7 @@ import App from "./App.tsx";
 import { LoginForm } from "./components/forms/login-form.tsx";
 import { SignupForm } from "./components/forms/signup-form.tsx";
 import { Guard } from "./components/Guard.tsx";
+import { MainLayout } from "./components/main-layout.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -13,8 +14,13 @@ export const router = createBrowserRouter([
     ), // Wrap all child routes
     children: [
       {
-        path: "/",
-        element: <App />,
+        element: <MainLayout />,
+        children: [
+          {
+            path: "/",
+            element: <App />,
+          },
+        ],
       },
       {
         path: "/login",
